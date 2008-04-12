@@ -1,0 +1,56 @@
+= MigrationsConstraints
+
+MigrationsConstraints adds the capability to add/drop table constraints or 
+specify column constraints during table creation time to 
+ActiveRecord::Migrations.
+
+It currently supports the following:
+
+  create_table :users do |t|
+    t.column :login, :string, :limit => 20, :null => false, :unique => true
+    t.column :type, :string, :limit => 80, :null => false
+  end
+    
+  create_table :projects do |t|
+    t.column :owner_id, :integer, :null => false, :references => :users
+    t.column :name, :string, :null => false
+  end
+  
+  create_table :line_items do |t|
+    t.column :quantity, :integer, :null => false, :check => '> 0'
+  end
+  
+  add_constraint :projects, :unique => :name
+  drop_constraint :projects, :unique => :name
+  
+  add_constraint :project_members, :foreign_key => :project_id, :references => :projects
+  add_constraint :project_members, :foreign_key => :user_id, :references => :users
+  
+  drop_constraint :project_members, :foreign_key => :user_id, :references => :users
+  drop_constraint :project_members, :foreign_key => :project_id, :references => :projects
+  
+  add_constraint :line_items, :name => 'line_items_max_quantity_check', :check => 'quantity < 10000'
+  drop_constraint :line_items, :name => 'line_items_max_quantity_check'
+
+== ConstraintNaming
+
+Constraints by default are named according to the default naming convention used
+by PostgreSQL 8.2.x. That is for a given table +table+, column +column+:
+
+ * A unique constraint is named +table_column_uq+.
+ * A foreign key constraint is named +table_column_fkey+.
+ * A check constraint is named +table_column_check+.
+
+Otherwise, a constraint's name can be specified explicitly via the +:name+
+parameter:
+
+  add_constraint :books, :foreign_key => :author_id, :references => :authors, :name => 'books_authors_fkey'
+
+== Release Notes
+
+MigrationsConstraints is currently being developed and tested using a PostgreSQL
+8.2 database back-end.
+
+If the database you're using doesn't follow the same (ANSI SQL 92) data
+definition language for specifying database constraints, then please support
+this project by contributing to the code. :)

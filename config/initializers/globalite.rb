@@ -1,0 +1,1 @@
+Globalite.language = :en

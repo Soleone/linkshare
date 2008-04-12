@@ -1,0 +1,32 @@
+action_backToAllLinks: 					Back to list of all Links
+action_postNewLink:    					Post a new Link
+
+link_createdAtInWords: 					The Link itself is <em>{created_distance}</em> old and information on this page was last changed <em>{updated_distance}</em> ago.
+link_showHelp:         					Show detailed information on this Link!
+link_editHelp:                	Edit this Link!
+link_deleteHelp:              	Delete this Link!
+link_deleteConfirmation:      	Are you sure, you want to delete the Link "{title}"?
+
+comment_addNew: 									Add a new Comment
+comment_save: 										Save this Comment
+
+textile_tips: 										Text formatting tips
+textile_moreTips: 							here even more in a popup
+
+textile_popup_yourtext: 				Your text
+textile_popup_bulletedList: 		Bulleted list
+textile_popup_bulletedSecond: 	Second item
+textile_popup_numberedList: 		Numbered list
+textile_popup_linkname: 				Linkname
+
+preview: Preview
+table: Tabelle
+title: Title
+text: Text
+actions: Actions
+change: Change
+created: created
+updated: updated
+
+change_language: 	Change Language
+invalid_url: 			has to be a valid URL

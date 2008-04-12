@@ -1,0 +1,7 @@
+<form id="search-form" action="<%= url_for(:controller => 'search', :action => 'index') %>">
+	<input type="text" name="text" /> 
+	<!-- new Ajax.Autocompleter('search-box', 'suggest-menu', '/search/suggest'); -->
+	<%= submit_tag 'Search', :class => 'search-button' %>
+</form>
+<ul id="suggest-menu">
+</ul>

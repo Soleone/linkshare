@@ -1,0 +1,51 @@
+module RatingsHelper
+  def images_for_rating(rating, big=false)
+    if big
+      active = 'icons/emblem-favorite.png'
+      non_active = 'icons/emblem-favorite-grey.png'
+    else
+      active = 'icons/emblem-favorite_003.png'
+      non_active = 'icons/emblem-favorite_003-grey.png'
+    end
+    images = []
+    
+    case rating
+      when 0
+        3.times { images << non_active }
+      when 1
+        images << active
+        2.times { images << non_active }
+      when 2
+        2.times { images << active }
+        images << non_active
+      when 3
+        3.times { images << active }
+    end
+    return images
+  end
+  
+  def show_rating_mouse_over(rated, link_id, image_id)
+  	if rated
+  		""
+  	else
+  		"showRating(" + link_id.to_s + ", " + image_id.to_s + ");"
+  	end
+  end
+  
+  def update_with_rating_on_click(rated, link_id, image_id)
+  	if rated
+  		""
+  	else
+  		"new Ajax.Updater('link_" + link_id.to_s + "_rating ', '/links/" + 
+  			link_id.to_s + "/add_rating/" + image_id.to_s + "');"
+  	end
+  end
+  
+  def help_text(rated, points)
+  	if rated
+  		"You already rated this link"
+  	else
+  		"Click here to rate this link with " + points.to_s + "/3 points!"
+  	end
+  end
+end

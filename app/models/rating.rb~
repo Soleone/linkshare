@@ -1,0 +1,11 @@
+class Rating < ActiveRecord::Base
+  belongs_to :link
+  
+  validates_inclusion_of  :value, 
+                          :in => 0..3, 
+                          :message => "must be between 0 and 3"
+                          
+  def has_been_rated_by(ip)
+  	Rating.find(:first, :conditions => ["link_id = ? && ip = ?", id, ip])
+  end
+end

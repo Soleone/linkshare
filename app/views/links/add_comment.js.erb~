@@ -1,0 +1,8 @@
+comment = render_to_string :partial => '/comments/comment', :locals => { 
+  :comment => @comment
+}
+page.insert_html 	:bottom, :comments, comment
+page.insert_html 	:bottom, :comments, ajax_notice(@notice)
+page['comment_' + new_comment.id.to_s].visual_effect :highlight
+page['notices'].visual_effect :highlight, :startcolor => '#33FF00'
+

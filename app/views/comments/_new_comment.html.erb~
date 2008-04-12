@@ -1,0 +1,22 @@
+<div style="background-color: #fef5dd;">
+<% form_remote_tag :url => url_for(:action => 'add_comment', :id => link.id), 
+	:html => {:class => 'NewComment'} do -%>
+<%= content_tag 'h2', h(:comment_addNew.l) %>
+	<%= content_tag 'label', :title.l + ':', :for => 'comment[title]' %>
+	<br/>
+	<%= text_field :comment, :title %>
+	<br/>
+	<%= content_tag 'label', :text.l + ':', :for => 'comment[text]' %>
+	<br/>
+	<%= text_area 	:comment, :text, :rows => 10,
+									:onkeyup => "showTextileInPreview(this);"
+	 %>
+	<br/>
+	<%= hidden_field_tag :id, link.id %>
+	<%= submit_tag :comment_save.l, :id => 'submit' %>
+
+	<%= tag 'div', :id => 'textile_preview' %>
+
+<% end -%>
+</div><!-- End of Form-div -->
+

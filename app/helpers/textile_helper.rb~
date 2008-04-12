@@ -1,0 +1,5 @@
+module TextileHelper
+	def textilize(text)
+		textilize(sanitize text)
+	end
+end

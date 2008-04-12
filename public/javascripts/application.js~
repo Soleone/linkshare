@@ -1,0 +1,130 @@
+// Place your application-specific JavaScript functions and classes here
+// This file is automatically included by javascript_include_tag :defaults
+
+new Ajax.Autocompleter('search-box', 'suggest-menu', '/search/suggest');
+
+/* 
+ * Extracts the hostname from an URL to suggest a good name for that link.
+ */
+function suggestTitleForUrl(url){
+    var urlReg = /(http:\/\/)?(www\.)?([\w-_]+)(\.\w+)?(\.\w+)*(:\d+)?(\/([\w-_]+))?/;
+    urlReg.exec(url);
+    var host = RegExp.$3;
+    var domain = RegExp.$4;
+    var action = RegExp.$8;
+    // make google.de to Google.de
+    title = host.charAt(0).toUpperCase() + host.substr(1);
+    // add .de or .com
+    if (domain.length > 0) {
+        title += domain;
+    }
+    // add first resource after hostname
+    if (action.length > 0) {
+        title += ' - ' + action.charAt(0).toUpperCase() + action.substr(1);
+        ;
+    }
+    return title;
+}
+
+
+function openTextileQuickRedReference() {
+  window.open( 
+    "http://hobix.com/textile/quick.html",
+    "redRef",
+    "height=600,width=550,channelmode=0,dependent=0," +
+    "directories=0,fullscreen=0,location=0,menubar=0," +
+    "resizable=0,scrollbars=1,status=1,toolbar=0" 
+  );
+}
+
+
+function toggleLinkShow(id, show){
+    var link = $('link_image_' + id);
+    var link_desc = $('link_desc_' + id);
+    if (show == null) {
+        Effect.toggle(link_desc.id, "slide");
+        return;
+    }
+}
+
+
+function toggleLinkDetails(id) {
+  var linkActions = $('link_action_' + id);
+  var linkDesc = $('link_desc_' + id);
+  var displayMode = linkDesc.style.display;
+  
+	if (displayMode == 'none') {
+    linkDesc.style.display = 'block';
+    linkActions.style.display = 'block';
+  } else {
+    linkDesc.style.display = 'none';
+    linkActions.style.display = 'none';
+  }
+}
+
+
+function showRating(linkId, value, small) {
+  var current_id = 'link_' + linkId + '_rating_';
+
+	var linkRating1 = $(current_id + '1');
+  var linkRating2 = $(current_id + '2');
+  var linkRating3 = $(current_id + '3');
+
+	var activeBig = '/images/icons/emblem-favorite.png';
+	var inactiveBig = '/images/icons/emblem-favorite-grey.png';
+	
+	var activeSmall = '/images/icons/emblem-favorite_003.png';
+	var inactiveSmall = '/images/icons/emblem-favorite_003-grey.png';
+
+	var active = activeBig;
+	var inactive = inactiveBig;
+	
+	if (small) {
+		active = activeSmall;
+		inactive = inactiveSmall;
+		
+	}
+	if (value == 0) {
+		linkRating1.src = inactive;
+		linkRating2.src = inactive;
+		linkRating3.src = inactive;
+	}
+	if (value == 1) {
+		linkRating1.src = active;
+		linkRating2.src = inactive;
+		linkRating3.src = inactive;
+	}
+	if (value == 2) {
+		linkRating1.src = active;
+		linkRating2.src = active;
+		linkRating3.src = inactive;
+	}
+	if (value == 3) {
+		linkRating1.src = active;
+		linkRating2.src = active;
+		linkRating3.src = active;
+	}
+}
+
+
+function checkTitleLength(elementToChange) {
+	var titleLength = $('title_field').value.length;
+	var message = "Suggest a Title";
+	if (titleLength > 40) {
+		message = "<b>Title is too long!</b> Suggest a title?";
+	} else if (titleLength == 0) {
+		message = "<b>Please enter a Title.<b/>";	
+	}
+
+	$(elementToChange).update(message);
+}
+
+/*
+	Makes an AJAX call to the textile controller with the text of a textarea 
+	and shows the response in an Element with the ID 'textile_preview'
+*/
+function showTextileInPreview(textArea) {
+	var text = textArea.value;
+	new Ajax.Updater('textile_preview', '/textile', {postBody: text});
+}
+

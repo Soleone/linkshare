@@ -1,0 +1,66 @@
+<%
+	title = h(link.title)
+	if detailed
+		description = textilize sanitize(link.description)
+		main_style = "height: auto;"
+		desc_style = ""
+	else
+		description = textilize truncate(sanitize(link.description), 200)
+		main_style = ""
+		desc_style = "cursor: pointer;"
+	end
+	begin
+		class_name = 'Link ' + classname
+	rescue
+		class_name = 'Link'
+	end
+	# check if some text should be highlighted
+	begin
+		if highlight_text
+			title = highlight_text(title, highlight_text)
+			description = highlight_text(description, highlight_text)
+		end
+	rescue
+		# just move on	
+	end
+%>
+<div id="link_<%= link.id %>" class="<%= class_name %>" style="<%= main_style %>" 
+		onmouseover="$('link_action_<%= link.id.to_s %>').show();"
+		onmouseout="$('link_action_<%= link.id.to_s %>').hide();">
+	<% if detailed %>
+		<%= render :partial => 'datetime', :locals => {:link => link}%>
+	<% end %>
+	<!-- an icon for Links -->
+	<%= image_tag 'icons/text-html.png', 
+			:id => 'link_image_' + link.id.to_s	%>
+				
+	<!-- the actual Link to the site -->
+	<%= link_to title, h(link.url), :title => "Click here to visit this page!" %>
+	<br/>
+	<!-- the Description which is not visible at first -->
+	<% content_tag 'div',	:id => 'link_desc_' + link.id.to_s,	
+				:class => 'Description',	:style => desc_style,
+				:onclick => "location='" + link_url(link.id) + "'",
+				:title => "Click here to see full description and comments for this Link!" do %>
+			<%= description %>
+	<% end %>
+
+	<!-- Show rating for this Lin -->
+	<%= render :partial => 'ratings/rating', :locals => {:link => link} %>
+	
+	<!-- Show, Edit and Delete actions for the actual Link -->
+	<%= render :partial => 'links/link_actions', :locals => {:link => link} %>
+
+</div><!-- End class div.Link -->
+<% if detailed %>
+	<div id="comments">
+	<% link.comments.size.times do |count| %>
+		<%= render :partial => 'comments/comment', 
+				:locals => {:comment => link.comments[count], :count => count+1} %>
+	<% end %>
+	</div>
+	<div id="new-comment">
+		<%= render :partial => 'shared/textile_help' %>
+		<%= render :partial => 'comments/new_comment', :locals => {:link => link} %>
+	</div>
+<% end %>

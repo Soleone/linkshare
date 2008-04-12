@@ -1,0 +1,14 @@
+<!-- <h1>Details for this Link</h1> -->
+
+<% content_tag 'div', :class => 'Action' do %>
+	<%= image_tag 'icons/edit-find.png' %>
+	<%= link_to :action_backToAllLinks.l, links_path %>
+<% end -%>
+
+<%= render :partial => 'link', :locals => {	:link => @link, 
+										:detailed => true,
+										:classname => 'BackgroundDefault'
+									}
+ %>
+
+

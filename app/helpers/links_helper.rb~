@@ -1,0 +1,41 @@
+require 'net/http'
+
+module LinksHelper
+  def action(name)
+    case name
+      when 'new'
+      action = content_tag 'div', :class => 'action' do
+        image_tag 'icons/document-new.png'
+        link_to 'Post a new Link', new_link_path, :class => 'action'
+      end
+      when 'list'
+      image_tag 'icons/document-list.png'
+      link_to 'List all Links', links_url, :class => 'action'
+    end
+    return action
+  end
+  
+  # check if the link exists and makes sure it does not return a 404 HTTP code
+  def link_is_existent?(url)
+  	begin
+	    uri = URI.parse(url)
+  	  http_conn = Net::HTTP.new(uri.host, uri.port)
+  	  resp, data = http_conn.head("/" , nil)
+  	  puts "=== RESPONSE CODE #{resp.code}"
+  	  resp.code != "404"
+  	rescue URI::InvalidURIError, Errno::ECONNREFUSED, SocketError
+  		false
+  	end
+  end
+  
+  def highlight_text(original_text, highlight)
+  	regexp = eval "/(#{highlight})/i"
+  	original_text.gsub regexp() do |match|
+  	text = "<span class='HighlightText'>"
+  	text << match
+  	text << "</span>"
+  	text
+  	end
+  end
+  
+end

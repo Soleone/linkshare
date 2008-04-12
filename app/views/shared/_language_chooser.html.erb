@@ -1,0 +1,7 @@
+<div id='language_chooser'>
+<% form_tag 'bla', :method => 'post' do -%>
+  <span><%= :change_language.l %>:  
+  <%= select('user_locale', "code",  %w{Deutsch English}) %>  
+  <%= submit_tag :change.l %></span>
+<% end -%>
+</div>

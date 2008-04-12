@@ -1,0 +1,27 @@
+<div id="actions">
+	<%= render :partial => 'shared/search_form' %>
+
+	<% content_tag 'span', :class => 'Action' do %>
+		<%= image_tag 'icons/document-new_003.png' %>
+		<%= link_to_unless_current :action_postNewLink.l, new_link_path %>
+	<% end -%>
+
+</div>
+
+<hr/>
+
+<%
+	# show a different color for every second item 
+	count = 0
+	for link in @links 
+		count = 1 - count
+-%>	
+<%=	render :partial => 'links/link', 
+			:locals => {	:link => link, 
+										:detailed => false, 
+										:classname => 'HighlightItem' + count.to_s,
+										:highlight_text	=> @highlight
+									}
+%>
+<% end %>
+

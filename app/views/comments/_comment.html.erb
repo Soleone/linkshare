@@ -1,0 +1,7 @@
+<div id="<%= 'comment_' + comment.id.to_s %>" class="Comment">
+	<h4><%= count %>. comment created at
+		<%= comment.created_at.to_s :long %>
+	</h4>
+	<h3><%= h comment.title %></h3>
+	<p><%= textilize(sanitize comment.text) %></p>
+</div>

@@ -1,0 +1,32 @@
+action_backToAllLinks: 					Zurück zur Liste aller Links
+action_postNewLink: 						Neuen Link hochladen
+
+link_createdAtInWords: 					Der Link selbst ist <em>{created_distance}</em> alt, die letzte Änderung an genau dieser Seite ist <em>{updated_distance}</em> her.
+link_showHelp:         					Zeige alle Informationen zu diesem Link!
+link_editHelp:                	Bearbeite diesen Link!
+link_deleteHelp:              	Lösche diesen Link!
+link_deleteConfirmation:      	Bist du sicher, dass du den Link "{title}" löschen willst?
+
+comment_addNew: 									Einen Kommentar hinzufügen
+comment_save: 										Speichere diesen Kommentar
+
+textile_tips: 										Tipps zur Textformatierung
+textile_moreTips: 							hier noch mehr in einem Popup
+
+textile_popup_yourtext: 				Irgendein Text
+textile_popup_bulletedList: 		Ungeordnete Liste
+textile_popup_bulletedSecond: 	Zweites Element
+textile_popup_numberedList: 		Nummerierte Liste
+textile_popup_linkname: 				Link Name
+
+preview: Vorschau
+table: Tabelle
+title: 	Titel
+text: Text
+actions: Aktionen
+change: Verändern
+created: erstellt
+updated: verändert
+
+change_language: 								Sprache verändern
+invalid_url: 										muss eine gültige und erreichbare Addresse sein

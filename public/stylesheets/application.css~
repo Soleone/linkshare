@@ -1,0 +1,393 @@
+body {
+	color: black;
+/*	background-color: #95BC63; */
+	background: #94bb62 url('/images/bg/green-fade-down.gif') repeat-x;
+	width: 80%;
+	margin: 0 10% 0 10%;
+	font-size: 100%;
+	font-size: 0.75em;
+	padding: 0px;
+}
+
+/* Hack for Internet Explorer (never show margin around <hr/> */
+*+html hr {
+	display: block;
+	margin: -7px 0;	
+}
+
+/* Don't show margin around <hr/> and make it grey */
+hr {
+	padding: 0px;
+	margin: 0px;	
+	color: #ccc;
+	background-color: #ccc;
+}
+
+h2 {
+	padding-top: 12px;
+	font-size: 200%;
+}
+
+a {
+	outline: none;
+}
+
+a:hover {
+	color: black;
+	background-color: transparent;
+}
+
+	a img {
+		border: 0px;
+	}
+
+code {
+	background-color: black;
+	color: white;
+	font-family: Courier, serif;
+	font-weight: bold;
+	line-height: 36px;	
+	padding: 8px;
+	margin: 4px;
+}
+
+/**** 
+	IDs
+ ****/
+#wrapper {
+	/* background-color: #cf6; */
+	/* background-color: #FFBB51; */
+	background: #ffbb51 url('/images/bg/vertical-fade-brown-to-lighter.gif') repeat-x;
+	margin: 32px;
+	padding: 2px;
+	border-right: 1px solid #666;	
+	border: 1px solid #666;
+	
+}
+
+#content {
+	background-color: transparent;
+	margin: 4px;
+/*	border-left: 8px solid #cf6;
+	border-right: 8px solid #cf6;
+*/
+}
+
+#actions {
+	text-align: left;
+	margin-bottom: 4px;
+	border-top: 1px solid #666;
+}
+
+#notices {
+	color: green;
+	background-color: #ffc;
+	padding: 8px;
+	margin: 4px;
+	font-size: 150%;
+	font-weight: bold;
+	text-align: center;
+}
+
+#header {
+	text-align: center;
+	color: black;
+	font-size: 3em;
+	font-weight: bolder;
+	line-height: 100%;
+	padding: 12px 0px 12px 0px;
+}
+
+	#header a {
+		color: black;
+		text-decoration: none;
+	}
+
+	#header a:hover {
+		/* text-decoration: underline; */
+		color: white;
+	}
+	
+	#header span {
+		font-family: 'Times New Roman';
+		font-family: Arial, Helvetica, sans-serif;
+		
+	}
+
+	
+	#header em {
+		font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		font-size: 120%;
+		font-style: normal;
+	}
+
+
+#search-form {
+	margin: 0px;
+	padding: 4px;
+	float: right;
+}
+
+	#search-form input[type=text] {
+		font-size: 150%;
+		width: 140px;
+	}
+
+	.search-button {
+		font-size: 150%;
+	}
+		
+#new-comment {
+	background-color: #fef5dd;
+	margin: 4px 5px 0px 5px;
+}
+
+#markup_help_popup {
+	color: black;
+	background-color: #FEF5DD; 
+
+	margin: 8px;
+	text-align: left;
+	padding: 8px; 
+}
+
+  #markup_help_popup table {
+		width: 28em; 
+	}
+
+	  #markup_help_popup table td {
+			border-bottom: 1px solid black;
+			padding: 4px;
+		}
+	
+	
+#textile_preview {
+	background-color: #ffc;
+	border: 1px solid #eee;
+	padding: 0px;
+	margin: 0px;
+}
+
+
+/** 
+	Basic actions for the whole site (drawn button-like in a box with images)
+ **/
+.Action {
+	/* width: 30%; */
+	/* background-color: #FFBB51; */
+	background-color: transparent;
+	padding: 8px;
+	text-align: center;
+}
+
+.Action:hover {
+}
+
+
+	.Action img {
+		vertical-align: middle;
+	}
+
+	.Action a {
+		vertical-align: middle;
+		font-size: 150%;
+		font-weight: bolder;
+		text-decoration: none;
+		color: black;	
+		padding: 0px;
+	}
+
+	.Action a:hover {
+		text-decoration: underline;
+	}
+/** 
+	The actual Links to other sites (with title, url and description)
+ **/
+.Link {
+	position: relative;
+	height: 90px;
+	line-height: 36px;
+	padding-top: 8px;
+}
+
+.Link:hover {
+	 background: #cf6;
+}
+
+	.Link a, .Link img {
+		vertical-align: middle;	
+		font-size: 150%;
+		font-weight: bolder;	
+	}
+	
+	.Link .Description {
+		font-size: 100%;
+		font-weight: normal;
+		text-decoration: none;
+		display: block;
+		margin-left: 12px;
+		padding-bottom: 12px;
+		width: 80%;
+		padding-left: 24px;
+		background: url('/images/icons/quote.gif') no-repeat;
+	}
+
+.Rating {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+}
+
+
+/** 
+	Actions for a Link (drawn button-like in a box with images in the top right corner)
+ **/
+.LinkAction {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-left-color: #aaa;
+	border-top-color: #aaa;
+}
+
+.ActionSet {
+	margin-left: 0px;
+	line-height: 36px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+	.ActionSet ul {
+		padding: 0px;	
+		margin: 0px;	
+		height: 36px;
+	}
+	
+	.ActionSet table td {
+		width: 36px;
+		height:36px;
+	}
+		
+	.ActionSet p {
+		background-color: #ccc;
+		color: black;
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bold;
+		font-size: 14px;
+		letter-spacing: 4px;
+		/* height: 18px; */
+		display: block;
+		line-height: 18px;
+		margin: 0;
+	}
+	
+
+.NewComment {
+	padding: 8px;
+	margin: 4px;
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align: left;
+	background-color: #fef5dd;
+	width: 60%;
+	
+}
+
+	.NewComment label {
+		vertical-align: middle;
+		font-weight: bold;
+		font-size: 130%;
+	}
+	
+	.NewComment input {
+		font-size: 200%;
+		font-weight: bold;
+
+	}
+	
+	.NewComment input, .NewComment textarea {
+		margin-top: 4px;
+		margin-bottom: 12px;
+		width: 100%;
+
+	}
+	
+	.NewComment input#submit {
+	  margin-top: 12px;
+		width: auto;
+	}
+
+.Comment {
+	border: 1px solid #aaa;
+	border-left: 1px solid #666;
+	background-color: white;
+	text-align: left;
+	padding: 8px;
+	margin: 4px;
+
+}
+
+	.Comment h4 {
+		margin: 0;
+		color: #999;
+	}
+	
+	.Comment h3 {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 130%;
+		margin: 0;
+		margin-bottom: 4px;
+	}
+	
+	.Comment p {
+		margin: 8px
+	}
+	
+	
+.HighlightText {
+	background-color: #ff9;
+}
+
+.HighlightItem0 {
+	background-color: white;
+	background: url('/images/bg/vertical-fade-grey-to-white-reverse.gif') repeat-x;
+}
+
+.HighlightItem1 {
+	background-color: #e8e8e8;
+	background-color: white;
+	background: url('/images/bg/vertical-fade-grey-to-white.gif') repeat-x;
+}
+
+.BackgroundAction {
+	background-color: #FFBB51;
+}
+
+.BackgroundDefault {
+	background-color: #cf6;
+}
+
+.TextileHelp {
+	padding: 8px;
+	text-align: center;
+	background-color: #FEF5DD;
+	text-align: center;
+}
+
+.TextileHelp b {
+	font-size: 150%;
+	line-height: 36px;
+	text-decoration: underline;
+}
+
+.TextileHelp img {
+	vertical-align: middle;
+}
+
+.FadingBackground {
+	background-color: white;
+	padding: 8px;
+	/* background: url('/images/bg/vertical-fade-lightgreen-to-white.gif') repeat-x; */
+}

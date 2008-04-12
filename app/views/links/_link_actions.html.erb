@@ -1,0 +1,27 @@
+<div class="LinkAction ActionSet" id="link_action_<%= link.id %>" style="display: none;">
+		<% content_tag :p, :actions.l %>
+		<table width="108" cellspacing="0" cellpadding="0" vspace="0" >
+			<tr>
+				<td>
+					<%= link_to image_tag('icons/x-office-presentation.png', 
+											:mouseover => image_path('icons/x-office-presentation_002.png'),
+											:title => :link_showHelp.l), link
+					%>
+				</td>
+				<td>
+					<%= link_to image_tag('icons/accessories-text-editor_002.png', 
+											:mouseover => image_path('icons/accessories-text-editor_003.png'),
+											:title => :link_editHelp.l), 	edit_link_path(link)
+					%>
+				</td>
+				<td>
+					<%= link_to image_tag('icons/emblem-unreadable.png', 
+											:mouseover => image_path('icons/emblem-unreadable_002.png'),
+											:title => :link_deleteHelp.l), 
+									link, :confirm => :link_deleteConfirmation.l_with_args(:title => link.title),
+						 			:method => :delete
+					%>
+				</td>
+			</tr>
+		</table>
+</div>

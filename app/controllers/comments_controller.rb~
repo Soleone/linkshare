@@ -1,0 +1,31 @@
+class CommentsController < ApplicationController
+  
+  def preview
+    text = params[:text] || request.raw_post || ''
+    comment = Comment.new(:title => :preview.l,  :text => text)
+    render  :partial => 'comments/comment', :locals => {
+            :comment => comment, :id => 'preview_comment'}
+  end
+
+
+  # this is an AJAX method call, it updates the page!
+  def add_comment_for_link
+    @link = Link.find(params[:id])
+		notice = @link.add_comment(params[:comment][:title],  params[:comment][:text])
+	  render :update do |page|
+    	comment = render_to_string :partial => 'comments/comment', :locals => { 
+    		:comment => @link.comments[@link.comments.size-1], :count => @link.comments.size
+   		}
+   		# insert comment and highlight
+    	page.insert_html 	:bottom, :comments, comment
+    	page['comment_' + new_comment.id.to_s].visual_effect :highlight
+    	# insert status message after comment
+    	page.insert_html 	:bottom, :comments, ajax_notice(notice)
+    	# empty input fields
+    	page.select['.NewComment input'].each do |value|
+      		value = ''
+     	end
+    end
+  end
+  
+end

@@ -1,0 +1,8 @@
+<!-- created_on and updated_on -->
+<% content_tag 'div', :style => 'padding: 4px;' do %>
+	<%= image_tag 'icons/appointment-new_002.png' %>
+	<%= :link_createdAtInWords.l_with_args(
+			:created_distance => distance_of_time_in_words(link.created_at, Time.now),
+			:updated_distance => distance_of_time_in_words(link.updated_at, Time.now))
+  %>
+<% end %>

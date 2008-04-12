@@ -1,0 +1,18 @@
+h1. Link Share
+
+_a web application for sharing cool resources with other users_
+
+
+This is a Rails2 application, which can be easily started using:
+
+@ruby script/server@
+
+Before you need to prepare the database in config/database.yml with your table, username and password.
+
+Run this to create the database:OB
+
+@rake db:create@
+
+After that, run the following command from the root directory to create all tables:
+
+@rake db:migrate@

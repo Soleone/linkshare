@@ -1,0 +1,31 @@
+<%
+	rating = link.current_rating 
+	images = images_for_rating(rating)
+	current_id = 'link_' + link.id.to_s + '_rating'
+	 
+	# check ip address, to decide whether the user can rate this link
+	ip = request.env['REMOTE_ADDR']
+	rated = link.has_been_rated_by(ip)
+	help_text = "Click here to rate this link with either 1, 2 or 3 points!"
+	if (rated)
+		help_text = "You already rated this link"
+	end
+%>
+<% content_tag 'div', :id => current_id, :class => 'Rating ActionSet', 
+			:onmouseout => "showRating(" + link.id.to_s + ", " + link.current_rating.to_s + ", true);" do %>
+		<% content_tag 'table', :width => '108', 
+														:cellspacing => '0', 
+														:cellpadding => '0', 
+														:vspace => '0' do %>
+			<tr>
+				<% for count in 1..3 do %>
+				<td>
+					<%= image_tag images[count-1], :id => current_id + '_' + count.to_s,
+								:onmouseover => show_rating_mouse_over(rated, link.id, count),	
+								:onclick => update_with_rating_on_click(rated, link.id, count), 
+								:title => help_text %>
+				</td>
+				<% end %>
+			</tr>
+	<% end %>
+<% end %>

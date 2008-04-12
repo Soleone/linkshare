@@ -1,0 +1,21 @@
+.boxtop { 
+	background-color: #CCCCCC;
+  background: url(/images/bg/ne.gif) no-repeat top right; 
+}
+.boxtop div { 
+  height: 10px; 
+	background-color: #CCCCCC;
+  background: url(/images/bg/nw.gif) no-repeat top left; 
+}
+.boxbottom { 
+	background-color: #CCCCCC;
+  background: url(/images/bg/se.gif) no-repeat bottom right; 
+}
+.boxbottom div { 
+  height: 10px; 
+  background: url(/images/bg/sw.gif) no-repeat bottom left; 
+}
+.boxcontent {
+  padding: 0px 10px 0px 10px;
+	background-color: #CCCCCC;
+}

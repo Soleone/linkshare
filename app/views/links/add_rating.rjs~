@@ -1,0 +1,8 @@
+rating_field = 'link_' + @link.id.to_s + '_rating'
+page[rating_field].replace(render :partial => 'ratings/rating', :locals => {:link => @link})
+page[rating_field].visual_effect :shake
+
+page.insert_html 	:top, :content, ajax_notice(@notice)
+page['notices'].visual_effect :highlight, :startcolor => '#33FF00'
+
+

@@ -1,0 +1,54 @@
+<div id="markup_help_popup" style="display: none;">
+	<table align="center" cellspacing="0" cellpadding="0" border="0" >
+	  <tbody>
+	  	<tr>
+	  		<td>_<%= :textile_popup_yourtext.l %>_</td>
+				<td width="32px">&#187;</td>
+				<td><em><%= :textile_popup_yourtext.l %></em></td>
+			</tr>
+		  <tr>
+		  	<td>*<%= :textile_popup_yourtext.l %>*</td>
+				<td width="32px">&#187;</td>
+				<td><strong><%= :textile_popup_yourtext.l %></strong></td>
+			</tr>
+		  <tr>
+		  	<td>%{color:red}<%= :textile_popup_yourtext.l %>%</td>
+				<td width="32px">&#187;</td>
+				<td><span style="color: red;"><%= :textile_popup_yourtext.l %></span></td>
+			</tr>
+		  <tr>
+		  	<td>* <%= :textile_popup_bulletedList.l %><br/>* <%= :textile_popup_bulletedSecond.l %></td>
+				<td width="32px">&#187;</td>
+				<td><ul style="margin: 0px; margin-left: 16px; padding: 0px;">
+						<li><%= :textile_popup_bulletedList.l %></li>
+						<li><%= :textile_popup_bulletedSecond.l %></li></ul>
+				</td>
+			</tr>
+		  <tr>
+		  	<td># <%= :textile_popup_numberedList.l %><br/># <%= :textile_popup_bulletedSecond.l %></td>
+				<td width="32px">&#187;</td>
+				<td>1. <%= :textile_popup_numberedList.l %><br/>2. <%= :textile_popup_bulletedSecond.l %></td>
+			</tr>
+		  <tr>
+		  	<td>"<%= :textile_popup_linkname.l %>":URL</td>
+				<td width="32px">&#187;</td>
+				<td><a href="URL"><%= :textile_popup_linkname.l %></a></td>
+			</tr>
+		  <tr>
+		  	<td>|a|table|row|<br/>|b|table|row|</td>
+				<td width="32px">&#187;</td>
+				<td><%= :table.l %></td>
+			</tr>
+		  <tr>
+		  	<td>http://url<br/>email@address.com</td>
+				<td width="32px">&#187;</td>
+				<td>Auto-linked</td>
+			</tr>
+		  <tr>
+		  	<td>!imageURL!</td>
+				<td width="32px">&#187;</td>
+				<td>Image</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

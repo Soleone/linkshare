@@ -1,0 +1,38 @@
+<div class="FadingBackground NewComment">
+<%= render :partial => 'shared/textile_help' %>
+
+<%= content_tag 'h2', title %>
+<%= error_messages_for :link %>
+
+	<% preview_link = Link.new(:id => 0, :title => :preview.l, 
+																:created_at => Time.now, :updated_at => Time.now)
+	%>
+
+<% form_for(link) do |f| %>
+  <p>
+    <b>Url</b><br />
+    <%= f.text_field :url, :id => 'url_field', :onkeyup => "$('title_field').value = suggestTitleForUrl($('url_field').value);" %>
+  </p>
+
+  <p>
+    <b>Title</b><br />
+    <%= f.text_field :title, :id => 'title_field', :onkeyup => "checkTitleLength('title-length-checker');" %>
+		<%= link_to_function 'Suggest a Title', :id => "title-length-checker" do |page|
+			page << "$('title_field').value = suggestTitleForUrl($('url_field').value);"
+    end %>
+  </p>
+
+  <p>
+    <b>Description</b><br />
+    <%= f.text_area :description, :onkeyup => "showTextileInPreview(this);" %>
+  </p>
+
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>
+
+<%= content_tag 'p', '&nbsp;', :id => 'textile_preview' %>
+
+<%= link_to 'Back', links_path %>
+</div>

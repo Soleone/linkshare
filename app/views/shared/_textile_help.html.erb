@@ -1,0 +1,15 @@
+<div class="TextileHelp">
+	<div class="Header">
+		<%= image_tag 'icons/dialog-information.png' %>
+		<%= content_tag 'b', :textile_tips.l, 
+					:style => 'cursor: pointer;',
+					:title => 'Click to display help on how to nicely format your text!',
+					:onclick => "$('markup_help_popup').toggle()"
+		%>
+		&nbsp;
+		(<%= link_to	:textile_moreTips.l, 'http://hobix.com/textile/quick.html',
+									:onclick => 'openTextileQuickRedReference(); return false;'
+		%>)
+	</div>
+	<%= render :partial => 'shared/textile_help_popup' %>
+</div>
