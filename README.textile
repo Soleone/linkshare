@@ -3,7 +3,7 @@ h1. Link Share
 _a web application for sharing cool resources with other users_
 
 
-This is a Rails2 application, which can be easily started using:
+h3. This is a Rails2 application, which can be easily started using:
 
 @ruby script/server@
 
@@ -16,3 +16,5 @@ But before that, you need to prepare the database in config/database.yml with yo
 2. After that, run the following command from the root directory to create all tables:
 
 @rake db:migrate@
+
+3. Point your browser to @http://localhost:3000/links@
