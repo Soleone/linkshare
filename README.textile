@@ -3,11 +3,11 @@ h1. Link Share
 _a web application for sharing cool resources with other users_
 
 
-h3. This is a Rails2 application, which can be easily started using:
+This is a Rails2 application, which can be easily started using:
 
 @ruby script/server@
 
-But before that, you need to prepare the database in config/database.yml with your table, username and password.
+h3. But before that, you need to prepare the database in config/database.yml with your table, username and password.
 
 1. Run this to create the database:
 
