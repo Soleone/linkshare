@@ -7,14 +7,18 @@ This is a Rails2 application, which can be easily started using:
 
 @ruby script/server@
 
-h3. But before that, you need to prepare the database in config/database.yml with your table, username and password.
+h3. But before that, you need to prepare the database
 
-1. Run this to create the database:
+1. Open the file @config/database.yml@
+
+And insert your username and password.
+
+2. Run this to create the database:
 
 @rake db:create@
 
-2. After that, run the following command from the root directory to create all tables:
+3. After that, run the following command from the root directory to create all tables:
 
 @rake db:migrate@
 
-3. Point your browser to @http://localhost:3000/links@
+4. Point your browser to @http://localhost:3000/links@
