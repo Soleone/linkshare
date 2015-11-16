@@ -22,7 +22,3 @@ And insert your username and password.
 @rake db:migrate@
 
 4. Point your browser to @http://localhost:3000/links@
-
-h3. You can try a running version here:
-
-"LinkShare@Heroku":http://linkshare.heroku.com/links
